@@ -1,0 +1,16 @@
+PODS:
+  - MoeCommon (0.1.0)
+
+DEPENDENCIES:
+  - MoeCommon (from `../`)
+
+EXTERNAL SOURCES:
+  MoeCommon:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MoeCommon: 0ac19bd288aa2572d06f386e324d51e0ac6a1e1e
+
+PODFILE CHECKSUM: 9df6b35a4e0f76e07cd1d942058d1470ee50a3ae
+
+COCOAPODS: 1.7.4
