@@ -31,7 +31,15 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '9.0'
   s.swift_versions = '5.0'
 
-  s.source_files = 'Classes/*/*'
+  # s.source_files = 'Classes/*/*'
+  s.subspec 'Base' do |base|
+    base.source_files = 'Classes/Base/*/*'
+    base.frameworks = 'UIKit'
+  end
+  s.subspec 'Runtime' do |runtime|
+    runtime.source_files = 'Classes/Runtime/*'
+    runtime.dependency 'MoeCommon/Base'
+  end
   
   # s.resource_bundles = {
   #   'MoeCommon' => ['MoeCommon/Assets/*.png']

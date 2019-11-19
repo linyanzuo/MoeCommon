@@ -9,7 +9,11 @@
 import UIKit
 import MoeCommon
 
-class ViewController: UIViewController {
+struct RuntimeKey {
+    static let name = runtimeKey(for: "name")!
+}
+
+class ViewController: UIViewController, Runtime {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +35,17 @@ class ViewController: UIViewController {
         dict1 += dict2
         MLog(dict1)
     }
-
+    
+    @objc var name: String {
+        get {
+            var _name = getAssociatedObject(for: RuntimeKey.name) as? String
+            if _name == nil {
+                _name = String()
+                setAssociatedRetainObject(object: _name, for: RuntimeKey.name)
+            }
+            return _name!
+        }
+        set { setAssociatedRetainObject(object: newValue, for: RuntimeKey.name) }
+    }
 }
 
