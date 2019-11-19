@@ -7,7 +7,8 @@
 
 // MARK: Wrappable Define
 
-//  基本类型、结构体等, 使用等号`==`
+/// 数据类型包装协议
+/// 适用于`基本类型`、`结构体`等, 使用等号`==`确认类型
 public protocol TypeWrapperProtocol {
     associatedtype WrappedType
     var wrappedValue: WrappedType { get }
@@ -20,7 +21,8 @@ public struct NamespaceWrapper<T>: TypeWrapperProtocol {
     }
 }
 
-//  对象类型, 使用冒号`:`
+/// 命名空间包装协议
+/// 适用于对象类型, 使用冒号`:`实现协议
 public protocol NamespaceWrappable {
     associatedtype WrapperType
     var moe: WrapperType { get }
@@ -39,6 +41,9 @@ public extension NamespaceWrappable {
 // MARK: Extension
 
 extension String: NamespaceWrappable {}
+
+
+// MARK: Extension
 
 extension UIApplication: NamespaceWrappable {}
 extension UIViewController: NamespaceWrappable {}
