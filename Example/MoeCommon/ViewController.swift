@@ -34,6 +34,19 @@ class ViewController: UIViewController, Runtime {
                      "2": 2]
         dict1 += dict2
         MLog(dict1)
+        
+        userDefaultsSave(pairs: [
+            "UserLanguage" : "Chinese",
+            "Int" : 10,
+            "Null" : nil
+        ])
+        
+        print(userDefaultsValue(forKey: "Null"))
+        print(userDefaultsValue(forKey: "Int"))
+        print(userDefaultsValue(forKey: "UserLanguage"))
+        
+        userDefaultsRemove(keys: ["Int"])
+        print(userDefaultsValue(forKey: "Int"))
     }
     
     @objc var name: String {
