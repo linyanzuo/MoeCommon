@@ -10,6 +10,16 @@ import UIKit
 // MARK: UIColor
 
 public extension UIColor {
+    /// 随机颜色
+    class var random: UIColor {
+        get {
+            let red = CGFloat(arc4random() % 256) / 255.0
+            let green = CGFloat(arc4random() % 256) / 255.0
+            let blue = CGFloat(arc4random() % 256) / 255.0
+            return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+        }
+    }
+    
     /// 返回RGB值对应的`UIColor`实例
     /// - Parameter rgb: RGB值的16进制表示，如`0xFFFFFF`
     convenience init(rgb: UInt32) {
@@ -48,8 +58,7 @@ public extension TypeWrapperProtocol where WrappedType: UIApplication {
     /// 返回指定控制器中，控制器层级最高(正在交互)的控制器
     /// - Parameter base: 指定的控制器
     static func topViewController(
-        base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController)
-        -> UIViewController?
+        base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController?
     {
         if let nav = base as? UINavigationController
         { return topViewController(base: nav.visibleViewController) }
@@ -70,3 +79,26 @@ public extension TypeWrapperProtocol where WrappedType: UIApplication {
     }
 }
 
+
+// MARK: UIImage
+
+public extension TypeWrapperProtocol where WrappedType: UIImage {
+    func renderImage(
+        tintColor: UIColor,
+        blendMode: CGBlendMode = .destinationIn,
+        alpha: CGFloat = 1) -> UIImage?
+    {
+        UIGraphicsBeginImageContextWithOptions(wrappedValue.size, false, 0)
+        tintColor.setFill()
+        let bounds = CGRect.init(origin: CGPoint.zero, size: wrappedValue.size)
+        UIRectFill(bounds)
+        
+        wrappedValue.draw(in: bounds, blendMode: blendMode, alpha: alpha)
+        if blendMode != .destinationIn { wrappedValue.draw(in: bounds, blendMode: blendMode, alpha: alpha) }
+        
+        let tintedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return tintedImage
+    }
+}

@@ -5,6 +5,8 @@
 //  Created by Zed on 2019/11/19.
 //
 
+import UIKit
+
 // MARK: Wrappable Define
 
 /// 数据类型包装协议
@@ -38,12 +40,14 @@ public extension NamespaceWrappable {
 }
 
 
-// MARK: Extension
+// MARK: Standard
 
 extension String: NamespaceWrappable {}
 
 
-// MARK: Extension
+// MARK: UIKit
 
 extension UIApplication: NamespaceWrappable {}
 extension UIViewController: NamespaceWrappable {}
+
+extension UIImage: NamespaceWrappable {}
