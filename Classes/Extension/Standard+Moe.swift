@@ -5,7 +5,7 @@
 //  Created by Zed on 2019/11/19.
 //
 
-// MARK: String
+// MARK: - String
 
 extension TypeWrapperProtocol where WrappedType == String {
     /// 获取指定位置的子字符串并返回
@@ -23,7 +23,7 @@ extension TypeWrapperProtocol where WrappedType == String {
 }
 
 
-// MARK: URL
+// MARK: - URL
 
 extension TypeWrapperProtocol where WrappedType == URL {
     /// 返回`URL`的`query string`参数字典
@@ -42,7 +42,7 @@ extension TypeWrapperProtocol where WrappedType == URL {
 }
 
 
-// MARK: Operator
+// MARK: - Operator
 
 /// 将右侧数组的元素追加至左侧数组内
 /// - Parameter left: 左侧数组，右侧数组值将追加至此

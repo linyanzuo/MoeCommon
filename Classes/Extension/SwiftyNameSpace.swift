@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK: Wrappable Define
+// MARK: - Wrappable Define
 
 /// 数据类型包装协议
 /// 适用于`基本类型`、`结构体`等, 使用等号`==`确认类型
@@ -40,14 +40,12 @@ public extension NamespaceWrappable {
 }
 
 
-// MARK: Standard
+// MARK: - Standard
 
 extension String: NamespaceWrappable {}
 extension URL: NamespaceWrappable {}
 
 
-// MARK: UIKit
+// MARK: - Foundation
 
-extension UIApplication: NamespaceWrappable {}
-extension UIViewController: NamespaceWrappable {}
-extension UIView: NamespaceWrappable {}
+extension NSObject: NamespaceWrappable {}
