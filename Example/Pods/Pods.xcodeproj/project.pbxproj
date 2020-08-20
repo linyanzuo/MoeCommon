@@ -73,7 +73,7 @@
 		95E6400F2383F6FF00745E2F /* Standard+Moe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Standard+Moe.swift"; path = "/Users/zed/GitHub/MoeCommon/Classes/Extension/Standard+Moe.swift"; sourceTree = "<absolute>"; };
 		95E640102383F6FF00745E2F /* SwiftyNameSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyNameSpace.swift; sourceTree = "<group>"; };
 		95E640142383F6FF00745E2F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		95E6401A2384E11500745E2F /* Foundation+Moe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Foundation+Moe.swift"; path = "../Foundation+Moe.swift"; sourceTree = "<group>"; };
+		95E6401A2384E11500745E2F /* Foundation+Moe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Moe.swift"; sourceTree = "<group>"; };
 		96E84E7EBAE0C0E5FCAF45741F51DBA5 /* Pods-MoeCommon_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MoeCommon_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		97EBC6D4EA4D9F0880F100005CB2D984 /* Pods-MoeCommon_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MoeCommon_Tests-umbrella.h"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -175,29 +175,6 @@
 			path = "Example/Pods/Target Support Files/MoeCommon";
 			sourceTree = "<group>";
 		};
-		95CB74C424EE7522003C8DEB /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				95CB74CD24EE7626003C8DEB /* TableView+Moe.swift */,
-				95CB74CB24EE760E003C8DEB /* Navigation+Moe.swift */,
-				95CB74C924EE7601003C8DEB /* UIView+Moe.swift */,
-				95CB74C524EE754B003C8DEB /* UIColor+Moe.swift */,
-				95CB74C724EE75C9003C8DEB /* UIImage+Moe.swift */,
-				95CB74D024EE766F003C8DEB /* UIViewController.swift */,
-				95CB74D224EE7696003C8DEB /* UIApplication+Moe.swift */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
-		95CB74CF24EE7636003C8DEB /* Standard */ = {
-			isa = PBXGroup;
-			children = (
-				95E6401A2384E11500745E2F /* Foundation+Moe.swift */,
-				95E6400F2383F6FF00745E2F /* Standard+Moe.swift */,
-			);
-			path = Standard;
-			sourceTree = "<group>";
-		};
 		95E640082383F6D700745E2F /* Runtime */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,9 +194,16 @@
 		95E6400E2383F6FF00745E2F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				95CB74CF24EE7636003C8DEB /* Standard */,
-				95CB74C424EE7522003C8DEB /* UIKit */,
 				95E640102383F6FF00745E2F /* SwiftyNameSpace.swift */,
+				95E6401A2384E11500745E2F /* Foundation+Moe.swift */,
+				95E6400F2383F6FF00745E2F /* Standard+Moe.swift */,
+				95CB74CD24EE7626003C8DEB /* TableView+Moe.swift */,
+				95CB74CB24EE760E003C8DEB /* Navigation+Moe.swift */,
+				95CB74C924EE7601003C8DEB /* UIView+Moe.swift */,
+				95CB74C524EE754B003C8DEB /* UIColor+Moe.swift */,
+				95CB74C724EE75C9003C8DEB /* UIImage+Moe.swift */,
+				95CB74D024EE766F003C8DEB /* UIViewController.swift */,
+				95CB74D224EE7696003C8DEB /* UIApplication+Moe.swift */,
 			);
 			name = Extension;
 			path = Classes/Extension;
