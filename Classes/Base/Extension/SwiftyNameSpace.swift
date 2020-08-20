@@ -43,11 +43,11 @@ public extension NamespaceWrappable {
 // MARK: Standard
 
 extension String: NamespaceWrappable {}
+extension URL: NamespaceWrappable {}
 
 
 // MARK: UIKit
 
 extension UIApplication: NamespaceWrappable {}
 extension UIViewController: NamespaceWrappable {}
-
-extension UIImage: NamespaceWrappable {}
+extension UIView: NamespaceWrappable {}

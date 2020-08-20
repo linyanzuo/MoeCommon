@@ -52,6 +52,12 @@ public extension TypeWrapperProtocol where WrappedType: UIViewController {
 }
 
 
+// MARK: UIView
+
+public extension TypeWrapperProtocol where WrappedType: UIView {
+}
+
+
 // MARK: UIApplication
 
 public extension TypeWrapperProtocol where WrappedType: UIApplication {
@@ -83,6 +89,12 @@ public extension TypeWrapperProtocol where WrappedType: UIApplication {
 // MARK: UIImage
 
 public extension TypeWrapperProtocol where WrappedType: UIImage {
+    
+    /// 返回渲染后的图片
+    /// - Parameters:
+    ///   - tintColor: 前景色
+    ///   - blendMode: 混合模式
+    ///   - alpha: 透明度
     func renderImage(
         tintColor: UIColor,
         blendMode: CGBlendMode = .destinationIn,

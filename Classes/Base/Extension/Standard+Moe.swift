@@ -23,6 +23,25 @@ extension TypeWrapperProtocol where WrappedType == String {
 }
 
 
+// MARK: URL
+
+extension TypeWrapperProtocol where WrappedType == URL {
+    /// 返回`URL`的`query string`参数字典
+    public func queryParameters() -> [String: String?]? {
+        guard let components = URLComponents(url: wrappedValue, resolvingAgainstBaseURL: false)
+            else { return nil}
+        
+        var params: [String: String?] = [:]
+        if let queryItems = components.queryItems {
+            for item in queryItems {
+                params[item.name] = item.value
+            }
+        }
+        return params
+    }
+}
+
+
 // MARK: Operator
 
 /// 将右侧数组的元素追加至左侧数组内
