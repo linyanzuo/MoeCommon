@@ -20,6 +20,20 @@ extension TypeWrapperProtocol where WrappedType == String {
         let en = wrappedValue.index(st, offsetBy:len)
         return String(wrappedValue[st ..< en])
     }
+    
+    /// 计算文本内容在有限空间内，展示时所占据的尺寸
+    /// - Parameters:
+    ///   - limitSize:  有限空间的尺寸
+    ///   - font:       文本字体
+    /// - Returns:      文本内容占据的尺寸
+    public func boundingSize(limitSize: CGSize, font: UIFont) -> CGSize {
+        return NSString(string: self.wrappedValue).boundingRect(
+            with: limitSize,
+            options: .usesLineFragmentOrigin,
+            attributes: [NSAttributedString.Key.font: font],
+            context: nil
+        ).size
+    }
 }
 
 
