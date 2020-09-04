@@ -14,6 +14,7 @@
 		7FAC72BE6DF04E47CDE211EFDA28A44A /* Pods-MoeCommon_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 97EBC6D4EA4D9F0880F100005CB2D984 /* Pods-MoeCommon_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8418DCB4308107EB1AE9A972C8973A21 /* MoeCommon-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 112CC12DB04C81613892D5C47224CA9E /* MoeCommon-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		902112297A4D6CA385CBB0412C26219B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		9594899D2501D40900B937AD /* CollectionView+Moe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594899C2501D40900B937AD /* CollectionView+Moe.swift */; };
 		95CB74C624EE754B003C8DEB /* UIColor+Moe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB74C524EE754B003C8DEB /* UIColor+Moe.swift */; };
 		95CB74C824EE75C9003C8DEB /* UIImage+Moe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB74C724EE75C9003C8DEB /* UIImage+Moe.swift */; };
 		95CB74CA24EE7601003C8DEB /* UIView+Moe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB74C924EE7601003C8DEB /* UIView+Moe.swift */; };
@@ -62,6 +63,7 @@
 		7C23751032E82DE1095988A8A0527639 /* Pods-MoeCommon_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MoeCommon_Example-Info.plist"; sourceTree = "<group>"; };
 		85943DA6BAE4707CA8A8805348A2C3A8 /* Pods-MoeCommon_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MoeCommon_Example-dummy.m"; sourceTree = "<group>"; };
 		922037663E16F0C035AF8520758CCB69 /* Pods-MoeCommon_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MoeCommon_Example.release.xcconfig"; sourceTree = "<group>"; };
+		9594899C2501D40900B937AD /* CollectionView+Moe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+Moe.swift"; sourceTree = "<group>"; };
 		95CB74C524EE754B003C8DEB /* UIColor+Moe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Moe.swift"; sourceTree = "<group>"; };
 		95CB74C724EE75C9003C8DEB /* UIImage+Moe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Moe.swift"; sourceTree = "<group>"; };
 		95CB74C924EE7601003C8DEB /* UIView+Moe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Moe.swift"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				95E6401A2384E11500745E2F /* Foundation+Moe.swift */,
 				95E6400F2383F6FF00745E2F /* Standard+Moe.swift */,
 				95CB74CD24EE7626003C8DEB /* TableView+Moe.swift */,
+				9594899C2501D40900B937AD /* CollectionView+Moe.swift */,
 				95CB74CB24EE760E003C8DEB /* Navigation+Moe.swift */,
 				95CB74C924EE7601003C8DEB /* UIView+Moe.swift */,
 				95CB74C524EE754B003C8DEB /* UIColor+Moe.swift */,
@@ -446,6 +449,7 @@
 				34FA0A68DCF701FD6F00B21F8A3D23B0 /* MoeCommon-dummy.m in Sources */,
 				95CB74D124EE766F003C8DEB /* UIViewController+Moe.swift in Sources */,
 				95E640192383F6FF00745E2F /* Constants.swift in Sources */,
+				9594899D2501D40900B937AD /* CollectionView+Moe.swift in Sources */,
 				95CB74C624EE754B003C8DEB /* UIColor+Moe.swift in Sources */,
 				95CB74CE24EE7626003C8DEB /* TableView+Moe.swift in Sources */,
 				95E640162383F6FF00745E2F /* SwiftyNameSpace.swift in Sources */,

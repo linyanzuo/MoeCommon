@@ -7,7 +7,6 @@ import UIKit
 
 
 public extension TypeWrapperProtocol where WrappedType: UITableView {
-
     /// 设置自定义TableHeaderView，注意该视图只需要约束宽高值，宽度通常与TableView一致
     /// - Parameter view: 设置为TableHeaderView的自定义视图
     func setTableHeaderView(view: UIView) {
@@ -46,5 +45,4 @@ public extension TypeWrapperProtocol where WrappedType: UITableView {
             fatalError("「dequeueCell」要不到与标识「\(reuseId)」对应的可复用CELL实例，请检查代码")
         }
     }
-
 }
