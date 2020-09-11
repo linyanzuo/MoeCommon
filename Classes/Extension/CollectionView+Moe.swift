@@ -2,6 +2,9 @@
 //  Created by Zed on 2020/8/18.
 //  Copyright © 2020 www.moemone.com. All rights reserved.
 //
+/**
+ 【集合视图】扩展
+ */
 
 import UIKit
 

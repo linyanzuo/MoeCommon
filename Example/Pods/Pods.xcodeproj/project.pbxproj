@@ -22,6 +22,7 @@
 		95CB74CE24EE7626003C8DEB /* TableView+Moe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB74CD24EE7626003C8DEB /* TableView+Moe.swift */; };
 		95CB74D124EE766F003C8DEB /* UIViewController+Moe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB74D024EE766F003C8DEB /* UIViewController+Moe.swift */; };
 		95CB74D324EE7696003C8DEB /* UIApplication+Moe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB74D224EE7696003C8DEB /* UIApplication+Moe.swift */; };
+		95E00E7B2509B75500F7B64D /* String+Moe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E00E7A2509B75500F7B64D /* String+Moe.swift */; };
 		95E6400D2383F6F300745E2F /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E6400C2383F6F300745E2F /* Runtime.swift */; };
 		95E640152383F6FF00745E2F /* Standard+Moe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E6400F2383F6FF00745E2F /* Standard+Moe.swift */; };
 		95E640162383F6FF00745E2F /* SwiftyNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E640102383F6FF00745E2F /* SwiftyNameSpace.swift */; };
@@ -71,6 +72,7 @@
 		95CB74CD24EE7626003C8DEB /* TableView+Moe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableView+Moe.swift"; sourceTree = "<group>"; };
 		95CB74D024EE766F003C8DEB /* UIViewController+Moe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Moe.swift"; sourceTree = "<group>"; };
 		95CB74D224EE7696003C8DEB /* UIApplication+Moe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Moe.swift"; sourceTree = "<group>"; };
+		95E00E7A2509B75500F7B64D /* String+Moe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Moe.swift"; sourceTree = "<group>"; };
 		95E6400C2383F6F300745E2F /* Runtime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Runtime.swift; path = Classes/Runtime/Runtime.swift; sourceTree = "<group>"; };
 		95E6400F2383F6FF00745E2F /* Standard+Moe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Standard+Moe.swift"; path = "/Users/zed/GitHub/MoeCommon/Classes/Extension/Standard+Moe.swift"; sourceTree = "<absolute>"; };
 		95E640102383F6FF00745E2F /* SwiftyNameSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyNameSpace.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				95CB74C724EE75C9003C8DEB /* UIImage+Moe.swift */,
 				95CB74D024EE766F003C8DEB /* UIViewController+Moe.swift */,
 				95CB74D224EE7696003C8DEB /* UIApplication+Moe.swift */,
+				95E00E7A2509B75500F7B64D /* String+Moe.swift */,
 			);
 			name = Extension;
 			path = Classes/Extension;
@@ -440,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95CB74D324EE7696003C8DEB /* UIApplication+Moe.swift in Sources */,
+				95E00E7B2509B75500F7B64D /* String+Moe.swift in Sources */,
 				95CB74CA24EE7601003C8DEB /* UIView+Moe.swift in Sources */,
 				95CB74C824EE75C9003C8DEB /* UIImage+Moe.swift in Sources */,
 				95CB74CC24EE760F003C8DEB /* Navigation+Moe.swift in Sources */,
