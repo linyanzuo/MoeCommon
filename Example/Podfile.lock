@@ -1,5 +1,13 @@
 PODS:
-  - MoeCommon (0.1.0)
+  - MoeCommon (0.1.2):
+    - MoeCommon/Base (= 0.1.2)
+    - MoeCommon/Extension (= 0.1.2)
+    - MoeCommon/Runtime (= 0.1.2)
+  - MoeCommon/Base (0.1.2)
+  - MoeCommon/Extension (0.1.2)
+  - MoeCommon/Runtime (0.1.2):
+    - MoeCommon/Base
+    - MoeCommon/Extension
 
 DEPENDENCIES:
   - MoeCommon (from `../`)
@@ -9,8 +17,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MoeCommon: 0ac19bd288aa2572d06f386e324d51e0ac6a1e1e
+  MoeCommon: 58429fce47df711e46147d7d34c07648459012ef
 
 PODFILE CHECKSUM: 9df6b35a4e0f76e07cd1d942058d1470ee50a3ae
 
-COCOAPODS: 1.7.4
+COCOAPODS: 1.9.3

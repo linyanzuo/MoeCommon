@@ -13,11 +13,23 @@ import UIKit
 
 // MARK: - String
 
-extension TypeWrapperProtocol where WrappedType == String {
+public extension TypeWrapperProtocol where WrappedType == String {
+    /// 获取指定索引值所包含的区间值
+    /// - Parameters:
+    ///   - start:  开始索引值，包含开始索引
+    ///   - end:    结束索引值，不包含结束索引
+    /// - Returns:  从开始索引至结束索引的范围值
+    func range(from start: Int, to end: Int) -> Range<String.Index>? {
+        guard start <= end, end < wrappedValue.count else { return nil }
+        let startIndex = wrappedValue.index(wrappedValue.startIndex, offsetBy: start)
+        let endIndex = wrappedValue.index(wrappedValue.startIndex, offsetBy: end)
+        return startIndex..<endIndex
+    }
+    
     /// 获取指定位置的子字符串并返回
     /// - Parameter start: 开始截取位置(包含该位置的值)
     /// - Parameter length: 截取长度, 不指定则取到结束
-    public func subString(start:Int, length:Int = -1) -> String {
+    func subString(start:Int, length:Int = -1) -> String {
         var len = length
         if len == -1 {
             len = wrappedValue.count - start
@@ -27,12 +39,31 @@ extension TypeWrapperProtocol where WrappedType == String {
         return String(wrappedValue[st ..< en])
     }
     
+    /// 替换指定范围的内容为`*`号，并适当添加空格
+    /// - Parameters:
+    ///   - left:   起始位置保留的原字符个数
+    ///   - right:  结束位置保留的原字符个数
+    ///   - per:    每间隔多少个字符添加空格
+    /// - Returns:  返回替换的字符
+    func replaceAsterisk(leftKeep left: Int, rightKeep right: Int, insertWhitespace per: Int? = nil) -> String? {
+        guard wrappedValue.count > left + right else { return nil }
+        var asterisks = ""
+        for i in left..<(wrappedValue.count - right) {
+            if per != nil && i % per! == 0 { asterisks += " " }
+            asterisks += "*"
+        }
+        if per != nil { asterisks += " " }
+        let rightIndex = wrappedValue.count - right
+        guard let rangeExp = wrappedValue.moe.range(from: left, to: rightIndex) else { return nil }
+        return wrappedValue.replacingCharacters(in: rangeExp, with: asterisks)
+    }
+    
     /// 计算文本内容在有限空间内，展示时所占据的尺寸
     /// - Parameters:
     ///   - limitSize:  有限空间的尺寸
     ///   - font:       文本字体
     /// - Returns:      文本内容占据的尺寸
-    public func boundingSize(limitSize: CGSize, font: UIFont) -> CGSize {
+    func boundingSize(limitSize: CGSize, font: UIFont) -> CGSize {
         return NSString(string: self.wrappedValue).boundingRect(
             with: limitSize,
             options: .usesLineFragmentOrigin,
@@ -44,7 +75,7 @@ extension TypeWrapperProtocol where WrappedType == String {
 
 // MARK: - AttributedString
 
-extension NSAttributedString {
+public extension NSAttributedString {
     /// 根据指定参数，创建富文本实例
     /// - Parameters:
     ///   - text:   富文本内容
