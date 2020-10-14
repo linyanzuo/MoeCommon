@@ -93,6 +93,23 @@ public extension TypeWrapperProtocol where WrappedType: UIViewController {
         navCtrler.pushViewController(viewController, animated: animated)
     }
     
+    /// 从导致栈中出栈，直至目标控制器处于栈顶，并展示其界面
+    /// - Parameters:
+    ///   - toViewController:   目标控制器
+    ///   - animated:           转场过程是否启用动画，默认为true
+    func pop(toViewController: UIViewController? = nil, animated: Bool = true) {
+        guard let navCtrler = wrappedValue.navigationController else {
+            MLog("当前控制器【\(wrappedValue.moe.clazzName)】未处于导航栈中，无法完成POP操作")
+            return
+        }
+        if let vc = toViewController {
+            navCtrler.popToViewController(vc, animated: animated)
+        } else {
+            navCtrler.popViewController(animated: animated)
+        }
+    }
+    
+    
     /// 模态呈现控制器，展示其界面。
     /// 通过「转场动画 + 控制器」形式实现的功能控件，都应该通过该方法呈现，而不是调用 `push(viewController: animated:)` 方法
     /// - Parameters:

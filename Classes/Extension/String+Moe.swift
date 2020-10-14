@@ -71,6 +71,32 @@ public extension TypeWrapperProtocol where WrappedType == String {
             context: nil
         ).size
     }
+    
+    /// Range转换为NSRange
+    /// - Parameter range:  待转换的Range值
+    /// - Returns:          转换后的NSRange值
+    func nsRange(from range: Range<String.Index>) -> NSRange? {
+        let utf16view = self.wrappedValue.utf16
+        if let from = range.lowerBound.samePosition(in: utf16view), let to = range.upperBound.samePosition(in: utf16view) {
+            return NSMakeRange(utf16view.distance(from: utf16view.startIndex, to: from), utf16view.distance(from: from, to: to))
+        }
+        return nil
+    }
+    
+    /// NSRange转换为Range
+    /// - Parameter nsRange:    待转换的NSRange值
+    /// - Returns:              转换后的Range值
+    func range(from nsRange: NSRange) -> Range<String.Index>? {
+        guard
+            let from16 = wrappedValue.utf16.index(wrappedValue.utf16.startIndex, offsetBy: nsRange.location,
+                                                  limitedBy: wrappedValue.utf16.endIndex),
+            let to16 = wrappedValue.utf16.index(from16, offsetBy: nsRange.length,
+                                                limitedBy: wrappedValue.utf16.endIndex),
+            let from = String.Index(from16, within: self.wrappedValue),
+            let to = String.Index(to16, within: self.wrappedValue)
+            else { return nil }
+        return from ..< to
+    }
 }
 
 // MARK: - AttributedString
