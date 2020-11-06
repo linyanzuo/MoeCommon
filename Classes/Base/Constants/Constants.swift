@@ -37,21 +37,20 @@ public struct MScreen {
     public static let width = UIScreen.main.bounds.size.width
     /// 获取当前设备的屏幕高度
     public static let height = UIScreen.main.bounds.size.height
-
-    /// 获取当前导航栏(包含状态栏的20像素)的高度
-    public static func navigationHeight() -> CGFloat {
-        var navH: CGFloat = 64.0
-        if #available(iOS 11.0, *), let mainWindow = UIApplication.shared.delegate?.window {
-            if mainWindow != nil, mainWindow!.safeAreaInsets.bottom > 0.0 { navH = 84.0 }
-        }
-        return navH
-    }
     
     /// 判断当屏幕是否刘海屏
-    public static func isBangs() -> Bool {
-        if #available(iOS 11.0, *) {
-            return UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0 > 0
-        } else { return false }
+    public static var isBangs: Bool {
+        get {
+            if #available(iOS 11.0, *), let mainWindow = UIApplication.shared.windows.first {
+                return mainWindow.safeAreaInsets.bottom > 0
+            }
+            return false
+        }
+    }
+    
+    /// 获取当前导航栏(包含状态栏的20像素)的高度
+    public static var navigationHeight: CGFloat {
+        get { return isBangs ? 84.0 : 64.0 }
     }
 }
 
