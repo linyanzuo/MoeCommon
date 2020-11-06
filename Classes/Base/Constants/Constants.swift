@@ -5,6 +5,8 @@
 //  Created by Zed on 2019/11/19.
 //
 
+import UIKit
+
 // MARK: Debug
 
 /// 调试输出
@@ -43,6 +45,13 @@ public struct MScreen {
             if mainWindow != nil, mainWindow!.safeAreaInsets.bottom > 0.0 { navH = 84.0 }
         }
         return navH
+    }
+    
+    /// 判断当屏幕是否刘海屏
+    public static func isBangs() -> Bool {
+        if #available(iOS 11.0, *) {
+            return UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0 > 0
+        } else { return false }
     }
 }
 
