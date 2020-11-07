@@ -8,10 +8,23 @@
 import Foundation
 
 
+// MARK: - CGSize
+public extension CGSize {
+    /// 返回（最大宽度，指定高度）的尺寸
+    static func maxWidth(height: CGFloat) -> CGSize {
+        return CGSize(width: CGFloat.greatestFiniteMagnitude, height: height)
+    }
+    
+    /// 返回（指定宽度，最大高度）的尺寸
+    static func maxHeight(width: CGFloat) -> CGSize {
+        return CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
+    }
+}
+
+
 // MARK: - NSObject
 
 public extension TypeWrapperProtocol where WrappedType: NSObject {
-
     var clazzName: String {
         return String(describing: wrappedValue.self)
 //        let thisType = type(of: self)
@@ -21,7 +34,6 @@ public extension TypeWrapperProtocol where WrappedType: NSObject {
     static var clazzName: String {
         return String(describing: WrappedType.self)
     }
-
 }
 
 
