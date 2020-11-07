@@ -74,10 +74,11 @@ public extension TypeWrapperProtocol where WrappedType: UIViewController {
         }
     }
     
-    /// 为导航栏添加返回按钮
-    func navigationAddBackItem() {
+    /// 为导航栏添加返回按钮。注意此方法内部对图片进行强制解析，若不存在与名称匹配的图片会导致应用崩溃
+    /// - Parameter imageName: 返回按钮图片名称；若不存在，则会因可选类型的强制解析失败导致崩溃
+    func navigationAddBackItem(_ imageName: String) {
         let backItemAction = #selector(UIViewController.navigationBackItemAction)
-        let backItem = UIBarButtonItem(imageName: "nav_back", target: wrappedValue, selector: backItemAction)
+        let backItem = UIBarButtonItem(imageName: imageName, target: wrappedValue, selector: backItemAction)
         wrappedValue.navigationItem.leftBarButtonItem = backItem
     }
     
