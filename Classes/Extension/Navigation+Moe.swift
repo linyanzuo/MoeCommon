@@ -78,7 +78,8 @@ public extension TypeWrapperProtocol where WrappedType: UIViewController {
     /// - Parameter imageName: 返回按钮图片名称；若不存在，则会因可选类型的强制解析失败导致崩溃
     func navigationAddBackItem(image: UIImage) {
         let backItemAction = #selector(UIViewController.navigationBackItemAction)
-        let backItem = UIBarButtonItem(image: image, style: .plain, target: wrappedValue, action: backItemAction)
+        let backImage = image.withRenderingMode(.alwaysOriginal)
+        let backItem = UIBarButtonItem(image: backImage, style: .plain, target: wrappedValue, action: backItemAction)
         wrappedValue.navigationItem.leftBarButtonItem = backItem
     }
     

@@ -22,7 +22,6 @@ public enum GradientType: Int {
 // MARK: - UIImage 图片绘制相关扩展
 
 public extension TypeWrapperProtocol where WrappedType: UIImage {
-    
     /// 在指定尺寸的图形上下文环境中，执行闭包代码绘制图片
     /// - Parameters:
     ///   - size:           图形上下文尺寸，即生成图片的尺寸
@@ -132,6 +131,55 @@ public extension TypeWrapperProtocol where WrappedType: UIImage {
         }
     }
     
+    /// 生成文本图片，可指定内容、尺寸、圆角、颜色、边框
+    /// - Parameters:
+    ///   - size:               图片的尺寸
+    ///   - text:               文本内容
+    ///   - textAttributes:     文本属性
+    ///   - radius:             圆角半径
+    ///   - corner:             圆角位置，默认为全部4个角都处理
+    ///   - borderWidth:        图片边框的线宽。默认为0，即无边框
+    ///   - borderColor:        图片边框的颜色。默认为黑色
+    ///   - backgroundColor:    图片背景色
+    /// - Returns: 生成的文本图片
+    static func textImage(
+        size: CGSize,
+        text: String,
+        textAttributes: [NSAttributedString.Key : Any]? = nil,
+        radius: CGFloat = 0,
+        corner: UIRectCorner = .allCorners,
+        borderWidth: CGFloat = 0,
+        borderColor: UIColor = UIColor.black,
+        backgroundColor: UIColor
+    ) -> UIImage? {
+        return Self.drawImage(with: size, opaque: true) { (context) in
+            let borderPath = UIBezierPath(
+                roundedRect: CGRect(x: 0, y: 0, width: size.width, height: size.height),
+                byRoundingCorners: corner,
+                cornerRadii: CGSize(width: radius, height: radius)
+            )
+            context.addPath(borderPath.cgPath)
+            borderColor.setFill()
+            context.drawPath(using: .fill)
+            
+            let halfBorder = borderWidth / 2
+            let roundedPath = UIBezierPath(
+                roundedRect: CGRect(x: halfBorder, y: halfBorder, width: size.width - borderWidth, height: size.height - borderWidth),
+                byRoundingCorners: corner,
+                cornerRadii: CGSize(width: radius - halfBorder, height: radius - halfBorder))
+            context.addPath(roundedPath.cgPath)
+            backgroundColor.setFill()
+            context.drawPath(using: .fill)
+            
+            let textStr = NSString(string: text)
+            let textSize = textStr.size(withAttributes: textAttributes)
+            textStr.draw(
+                in: CGRect(x: (size.width - textSize.width) / 2, y: (size.height - textSize.height) / 2, width: textSize.width, height: textSize.height),
+                withAttributes: textAttributes
+            )
+        }
+    }
+    
     /// 生成混合渲染后的图片
     /// - Parameters:
     ///   - tintColor:  混合渲染的前景色
@@ -154,5 +202,4 @@ public extension TypeWrapperProtocol where WrappedType: UIImage {
             }
         }
     }
-    
 }
