@@ -119,6 +119,7 @@ public extension TypeWrapperProtocol where WrappedType: UIViewController {
     ///   - animated:       转场过程是否启用动画，默认为true
     ///   - completion:     转场动画执行完成后的回调闭包
     func present(viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
+        if #available(iOS 13.0, *) { viewController.modalPresentationStyle = .fullScreen }
         wrappedValue.present(viewController, animated: animated, completion: completion)
     }
 }
