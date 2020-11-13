@@ -8,7 +8,6 @@
 import UIKit
 
 // MARK: Debug
-
 /// 调试输出
 /// - Parameter fmt: 输出的内容
 /// - Parameter file: 调试代码所在的文件名
@@ -24,7 +23,6 @@ public func MLog<T>(_ fmt: T, file: String = #file, function: String = #function
 
 
 // MARK: Screen
-
 /// 屏幕信息
 public struct MScreen {
     /// 获取当前设备的屏幕像素比例系数
@@ -55,8 +53,15 @@ public struct MScreen {
 }
 
 
-// MARK: Project
+// MARK: Window
+/// 窗口信息
+public struct MWindow {
+    /// 获取当前置顶的窗口实例
+    public static let top = UIApplication.shared.windows.first
+}
 
+
+// MARK: Project
 /// 项目信息
 public struct MInfo {
     /// 命名空间
