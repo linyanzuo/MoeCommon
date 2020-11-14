@@ -65,9 +65,11 @@ public struct MWindow {
 /// 项目信息
 public struct MInfo {
     /// 命名空间
-    public static let namespace = info(for: "CFBundleExecutable")
+    public static let namespace = info(for: "CFBundleExecutable") ?? "获取【命名空间】失败"
     /// 应用版本号
-    public static let appVersion = info(for: "CFBundleShortVersionString")
+    public static let appVersion = info(for: "CFBundleShortVersionString") ?? "获取【应用版本号】失败"
+    /// 应用BundleID
+    public static let bundleID = info(for: "CFBundleIdentifier") ?? "获取【应用BundleID】失败"
     
     private static func info(for key: String) -> String? {
         guard let infoDict = Bundle.main.infoDictionary else { return nil }
