@@ -26,13 +26,13 @@ public extension CGSize {
 
 public extension TypeWrapperProtocol where WrappedType: NSObject {
     var clazzName: String {
-        return String(describing: wrappedValue.self)
-//        let thisType = type(of: self)
-//        return String(describing: thisType)
+        let clazz: AnyClass? = object_getClass(wrappedValue.self)
+        return NSStringFromClass(clazz!)
     }
 
     static var clazzName: String {
-        return String(describing: WrappedType.self)
+        let clazz: AnyClass? = object_getClass(WrappedType.self)
+        return NSStringFromClass(clazz!)
     }
 }
 
