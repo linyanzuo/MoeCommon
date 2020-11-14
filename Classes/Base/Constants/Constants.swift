@@ -58,6 +58,8 @@ public struct MScreen {
 public struct MWindow {
     /// 获取当前置顶的窗口实例
     public static let top = UIApplication.shared.windows.first
+    /// 获取AppDelegate关联的窗口实例
+    public static let key = UIApplication.shared.keyWindow
 }
 
 

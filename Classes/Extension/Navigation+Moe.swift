@@ -95,7 +95,7 @@ public extension TypeWrapperProtocol where WrappedType: UIViewController {
         navCtrler.pushViewController(viewController, animated: animated)
     }
     
-    /// 从导致栈中出栈，直至目标控制器处于栈顶，并展示其界面
+    /// 从导航栈中出栈，直至目标控制器处于栈顶，并展示其界面
     /// - Parameters:
     ///   - toViewController:   目标控制器
     ///   - animated:           转场过程是否启用动画，默认为true
@@ -112,7 +112,7 @@ public extension TypeWrapperProtocol where WrappedType: UIViewController {
     }
     
     
-    /// 模态呈现控制器，展示其界面。
+    /// 呈现模态控制器，展示其界面。
     /// 通过「转场动画 + 控制器」形式实现的功能控件，都应该通过该方法呈现，而不是调用 `push(viewController: animated:)` 方法
     /// - Parameters:
     ///   - viewController: 要展示的视图控制器
@@ -121,6 +121,14 @@ public extension TypeWrapperProtocol where WrappedType: UIViewController {
     func present(viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
         if #available(iOS 13.0, *) { viewController.modalPresentationStyle = .fullScreen }
         wrappedValue.present(viewController, animated: animated, completion: completion)
+    }
+    
+    /// 释放模态控制器，移除其界面。
+    /// - Parameters:
+    ///   - animated:       转场过程是否启用动画，默认为true
+    ///   - completion:     转场动画执行完成后的回调闭包
+    func dismiss(animated: Bool = true, completion: (() -> Void)? = nil) {
+        wrappedValue.dismiss(animated: animated, completion: completion)
     }
 }
 
