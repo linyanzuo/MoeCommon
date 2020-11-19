@@ -63,9 +63,9 @@ public extension TypeWrapperProtocol where WrappedType: UIImage {
     /// - Returns:      生成的渐变背景色图片
     static func gradientImage(
         colors: Array<UIColor>,
-        locations: [CGFloat],
+        locations: [CGFloat] = [0.0, 1.0],
         size: CGSize,
-        type: GradientType
+        type: GradientType = .LeftToRight
     ) -> UIImage? {
         let defaultAllocaor = CFAllocatorGetDefault().takeUnretainedValue()
         // CFArrayCreateMutable得到的是一个托管对象,所以不需要像OC一样使用CFRelease来释放它了
