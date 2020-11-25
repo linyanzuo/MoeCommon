@@ -24,15 +24,16 @@ public extension TypeWrapperProtocol where WrappedType: UIView {
     
     /// 添加底部细线
     /// - Parameters:
+    ///   - height:     底部细线宽度，默认为调用该方法时视图的宽度
     ///   - height:     底部细线高度，默认为1
     ///   - color:      底部细线颜色
     ///   - edgeInset:  缩进，仅左右方向值有效
-    func addBottomLine(height: CGFloat = 1.0, color: UIColor, edgeInset: UIEdgeInsets = .zero) {
+    func addBottomLine(width: CGFloat? = nil, height: CGFloat = 1.0, color: UIColor, edgeInset: UIEdgeInsets = .zero) {
         let bottomLine = CAShapeLayer()
         bottomLine.frame = CGRect(
             x: edgeInset.left,
             y: wrappedValue.bounds.maxY - height,
-            width: wrappedValue.frame.width - edgeInset.left - edgeInset.right,
+            width: width ?? (wrappedValue.frame.width - edgeInset.left - edgeInset.right),
             height: height
         )
         bottomLine.backgroundColor = color.cgColor
