@@ -129,8 +129,8 @@ public extension NSAttributedString {
     ///   - weight: 字体粗细，默认为普通
     ///   - color:  字体颜色
     ///   - lineSpacing: 行间距
-    @available(iOS 8.2, *)
-    convenience init(text: String, withFont size: CGFloat, weight: UIFont.Weight = .regular, color: UIColor = .black, lineSpacing: CGFloat? = nil) {
+    @available(iOS 9.0, *)
+    convenience init(text: String, withFont size: CGFloat, weight: UIFont.Weight = .regular, color: UIColor = .black, lineSpacing: CGFloat? = nil, alignment: NSTextAlignment = .left) {
         var attributes = [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: weight),
             NSAttributedString.Key.foregroundColor: color,
@@ -138,8 +138,21 @@ public extension NSAttributedString {
         if let lineSpacing = lineSpacing {
             let paraStyle = NSMutableParagraphStyle()
             paraStyle.lineSpacing = lineSpacing
+            paraStyle.alignment = alignment
             attributes[NSAttributedString.Key.paragraphStyle] = paraStyle
         }
         self.init(string: text, attributes: attributes)
+    }
+    
+    /// 创建图片内容的富文本实例
+    /// - Parameters:
+    ///   - image:      图片
+    ///   - height:     图片高度
+    ///   - offsetY:    竖直方向偏移量
+    convenience init(image: UIImage, height: CGFloat, offsetY: CGFloat = 0) {
+        let attach = NSTextAttachment()
+        attach.image = image
+        attach.bounds = CGRect(x: 0, y: offsetY, width:height / image.size.height * image.size.width, height: height)
+        self.init(attachment: attach)
     }
 }
