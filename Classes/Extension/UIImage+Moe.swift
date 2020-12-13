@@ -22,6 +22,7 @@ public enum GradientType: Int {
 // MARK: - UIImage 图片绘制相关扩展
 
 public extension TypeWrapperProtocol where WrappedType: UIImage {
+    // MARK: - 在指定尺寸的图形上下文环境中，执行闭包代码绘制图片
     /// 在指定尺寸的图形上下文环境中，执行闭包代码绘制图片
     /// - Parameters:
     ///   - size:           图形上下文尺寸，即生成图片的尺寸
@@ -42,6 +43,7 @@ public extension TypeWrapperProtocol where WrappedType: UIImage {
         return image
     }
     
+    // MARK: - 生成纯背景色的图片
     /// 生成纯背景色的图片
     /// - Parameters:
     ///   - color:  图片背景色
@@ -54,6 +56,7 @@ public extension TypeWrapperProtocol where WrappedType: UIImage {
         }
     }
     
+    // MARK: - 生成渐变背景色的图片
     /// 生成渐变背景色的图片
     /// - Parameters:
     ///   - colors:     包含渐变颜色的数组
@@ -100,6 +103,7 @@ public extension TypeWrapperProtocol where WrappedType: UIImage {
         }
     }
     
+    // MARK: - 生成圆角图片，可指定尺寸、圆角、颜色、边框
     /// 生成圆角图片，可指定尺寸、圆角、颜色、边框
     /// - Parameters:
     ///   - radius:             圆角半径
@@ -131,6 +135,7 @@ public extension TypeWrapperProtocol where WrappedType: UIImage {
         }
     }
     
+    // MARK: - 生成文本图片，可指定内容、尺寸、圆角、颜色、边框
     /// 生成文本图片，可指定内容、尺寸、圆角、颜色、边框
     /// - Parameters:
     ///   - size:               图片的尺寸
@@ -180,6 +185,7 @@ public extension TypeWrapperProtocol where WrappedType: UIImage {
         }
     }
     
+    // MARK: - 生成混合渲染后的图片
     /// 生成混合渲染后的图片
     /// - Parameters:
     ///   - tintColor:  混合渲染的前景色

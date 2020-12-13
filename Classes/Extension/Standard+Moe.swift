@@ -44,6 +44,14 @@ public extension Array where Element: Any {
         }
         return subArrays
     }
+    
+    /// 获取指定下标的元素
+    /// - Parameter index:  指定下标
+    /// - Returns:          指定下标对应的元素，若不存在则返回nil
+    func objectAt(_ index: Int) -> Element? {
+        guard self.count > index else { return nil }
+        return self[index]
+    }
 }
 
 
