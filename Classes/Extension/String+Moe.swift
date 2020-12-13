@@ -29,11 +29,10 @@ public extension TypeWrapperProtocol where WrappedType == String {
     /// 获取指定位置的子字符串并返回
     /// - Parameter start: 开始截取位置(包含该位置的值)
     /// - Parameter length: 截取长度, 不指定则取到结束
-    func subString(start:Int, length:Int = -1) -> String {
+    func subString(start:Int, length:Int = -1) -> String? {
+        guard start + length <= wrappedValue.count else { return nil }
         var len = length
-        if len == -1 {
-            len = wrappedValue.count - start
-        }
+        if len == -1 { len = wrappedValue.count - start }
         let st = wrappedValue.index(wrappedValue.startIndex, offsetBy:start)
         let en = wrappedValue.index(st, offsetBy:len)
         return String(wrappedValue[st ..< en])
