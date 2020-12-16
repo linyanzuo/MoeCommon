@@ -116,6 +116,16 @@ public extension TypeWrapperProtocol where WrappedType == String {
         
         return false
     }
+    
+    /// 将JSON字符串转换为字典，注意字符串本身应该有效的JSON内容才能顺利转换成功
+    /// - Returns: JSON字符串对应的字典
+    func jsonDictionary() -> [String: Any]? {
+        guard let data = wrappedValue.data(using: .utf8) else { return nil }
+        if let dict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) {
+            return dict as? [String: Any]
+        }
+        return nil
+    }
 }
 
 // MARK: - AttributedString
