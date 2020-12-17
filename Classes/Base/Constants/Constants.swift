@@ -46,9 +46,16 @@ public struct MScreen {
         }
     }
     
-    /// 获取当前导航栏(包含状态栏的20像素)的高度
+    /// 获取当前设备的导航栏(包含状态栏的20像素)高度
+    /// 刘海屏设备的顶部安全区域高度为20.0
     public static var navigationHeight: CGFloat {
         get { return isBangs ? 84.0 : 64.0 }
+    }
+    
+    /// 获取当前设备的选项栏高度
+    /// 刘海屏设备的底部安全区域高度为34.0
+    public static var tabHeight: CGFloat {
+        get { return isBangs ? 83.0 : 49.0 }
     }
 }
 
