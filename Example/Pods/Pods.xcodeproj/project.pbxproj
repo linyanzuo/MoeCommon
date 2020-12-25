@@ -25,7 +25,7 @@
 		842838034BBDB55DB91929B635E8EC65 /* CollectionView+Moe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040FDE78EBEE25A4B53AE34C0BA4206C /* CollectionView+Moe.swift */; };
 		89613D55A292CB51D9E13F691ECB59AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		9328D197D896E2751F994F83AAE50455 /* SwiftyNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419BDCCA101B0857E36EA7C9503F8E45 /* SwiftyNameSpace.swift */; };
-		95FD8DB62595F18F00C8C204 /* WKWebView+Moe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FD8DB52595F18F00C8C204 /* WKWebView+Moe.swift */; };
+		95FD8E11259602B900C8C204 /* WKWebView+Moe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FD8E10259602B900C8C204 /* WKWebView+Moe.swift */; };
 		9A6BDF08E95F8CD3509C573E6825D91D /* MoeCommon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8433B3DC6A8A731621FFC6E522BEB118 /* MoeCommon-dummy.m */; };
 		A27C5C6B85365A614EBFFD6C8CA268B1 /* Pods-MoeCommon_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D13827083E2B6B363F2F5B1E3FFE9354 /* Pods-MoeCommon_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D009BB5251B5C822E1DF0C613751FB9C /* Foundation+Moe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC320A6FD6A479995B4035D65255EDDC /* Foundation+Moe.swift */; };
@@ -76,7 +76,7 @@
 		8433B3DC6A8A731621FFC6E522BEB118 /* MoeCommon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MoeCommon-dummy.m"; sourceTree = "<group>"; };
 		85943DA6BAE4707CA8A8805348A2C3A8 /* Pods-MoeCommon_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MoeCommon_Example-dummy.m"; sourceTree = "<group>"; };
 		922037663E16F0C035AF8520758CCB69 /* Pods-MoeCommon_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MoeCommon_Example.release.xcconfig"; sourceTree = "<group>"; };
-		95FD8DB52595F18F00C8C204 /* WKWebView+Moe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Moe.swift"; sourceTree = "<group>"; };
+		95FD8E10259602B900C8C204 /* WKWebView+Moe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WKWebView+Moe.swift"; path = "Classes/Extension/WKWebView+Moe.swift"; sourceTree = "<group>"; };
 		9615FE35BEDBA4ABBCAFF5E29C1D98D9 /* TableView+Moe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TableView+Moe.swift"; path = "Classes/Extension/TableView+Moe.swift"; sourceTree = "<group>"; };
 		96E84E7EBAE0C0E5FCAF45741F51DBA5 /* Pods-MoeCommon_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MoeCommon_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		97EBC6D4EA4D9F0880F100005CB2D984 /* Pods-MoeCommon_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MoeCommon_Tests-umbrella.h"; sourceTree = "<group>"; };
@@ -142,6 +142,7 @@
 		22E36D7D9B88349B420C6F337B659A92 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				95FD8E10259602B900C8C204 /* WKWebView+Moe.swift */,
 				040FDE78EBEE25A4B53AE34C0BA4206C /* CollectionView+Moe.swift */,
 				FC320A6FD6A479995B4035D65255EDDC /* Foundation+Moe.swift */,
 				4E96728ECD24E4221A92376D8918BDEB /* Navigation+Moe.swift */,
@@ -154,7 +155,6 @@
 				EC79E73254C9C93310860CFDBE188F7F /* UIImage+Moe.swift */,
 				B3B4BAC486B2ECDED28F59F7AE7FD0EE /* UIView+Moe.swift */,
 				78C619B49C537250557D870128F641A0 /* UIViewController+Moe.swift */,
-				95FD8DB52595F18F00C8C204 /* WKWebView+Moe.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -453,7 +453,7 @@
 				D009BB5251B5C822E1DF0C613751FB9C /* Foundation+Moe.swift in Sources */,
 				9A6BDF08E95F8CD3509C573E6825D91D /* MoeCommon-dummy.m in Sources */,
 				38D43C0CDB5D8422370B3F55F9EFF700 /* Navigation+Moe.swift in Sources */,
-				95FD8DB62595F18F00C8C204 /* WKWebView+Moe.swift in Sources */,
+				95FD8E11259602B900C8C204 /* WKWebView+Moe.swift in Sources */,
 				DA36618CE53FDA6C970B1C2A2140894B /* Runtime.swift in Sources */,
 				5FB7D66B39E1900465B2BCF006AF0FBA /* Standard+Moe.swift in Sources */,
 				5EAA2D0CA287965F3CE4A6C01BABA71E /* String+Moe.swift in Sources */,

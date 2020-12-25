@@ -6,7 +6,6 @@
 //
 
 import WebKit
-import MoeCommon
 
 
 public extension TypeWrapperProtocol where WrappedType: WKWebView {
@@ -109,7 +108,7 @@ public extension TypeWrapperProtocol where WrappedType: WKWebView {
             guard let strongWebView = webView else { return }
             strongWebView.moe.executeJSMethod(name: name) { (result, error) in
                 guard var urlStrings = result as? String else { return }
-                if urlStrings.hasPrefix("#") { urlStrings = urlStrings.moe.subString(start: 1) }
+                if urlStrings.hasPrefix("#"), let us = urlStrings.moe.subString(start: 1) { urlStrings = us }
                 let urls = urlStrings.components(separatedBy: "#")
                 completionHanlder(urls)
             }
