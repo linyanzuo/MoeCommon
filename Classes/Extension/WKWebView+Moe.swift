@@ -16,20 +16,26 @@ public extension TypeWrapperProtocol where WrappedType: WKWebView {
     ///   - completionHandler:  注入结束的回调闭包
     func injectJSMethod(name: String, sourceCode: String, completionHandler: ((Any?, Error?) -> Void)?) {
         self.wrappedValue.evaluateJavaScript(sourceCode) { (result, error) in
-            if let r = result { MLog("【WebView】注入方法：\(name), 处理结果：\(r)") }
-            if let e = error { MLog("【WebView】注入方法：\(name), 出现错误：\(e)") }
+            if let e = error {
+                MLog("【WebView】注入方法：\(name), 出现错误：\(e)")
+            } else {
+                MLog("【WebView】注入方法：\(name), 处理结果：\(String(describing: result))")
+            }
             completionHandler?(result, error)
         }
     }
     
     /// 向WebView所加载页面执行JS方法，请在WebView完成Web页面的加载后执行本方法
     /// - Parameters:
-    ///   - name:               JS方法的名称
+    ///   - name:               JS方法的名称，不需要携带括号`()`
     ///   - compeltionHandler:  执行结束的回调闭包
     func executeJSMethod(name: String, completionHandler: ((Any?, Error?) -> Void)?) {
-        self.wrappedValue.evaluateJavaScript(name) { (result, error) in
-            if let r = result { MLog("【WebView】执行方法：\(name), 处理结果：\(r)") }
-            if let e = error { MLog("【WebView】执行方法：\(name), 出现错误：\(e)") }
+        self.wrappedValue.evaluateJavaScript("\(name)()") { (result, error) in
+            if let e = error {
+                MLog("【WebView】执行方法：\(name), 出现错误：\(e)")
+            } else {
+                MLog("【WebView】执行方法：\(name), 处理结果：\(String(describing: result))")
+            }
             completionHandler?(result, error)
         }
     }
@@ -115,4 +121,5 @@ public extension TypeWrapperProtocol where WrappedType: WKWebView {
         }
     }
 }
+
 
