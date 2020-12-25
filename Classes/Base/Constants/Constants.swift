@@ -7,12 +7,13 @@
 
 import UIKit
 
+
 // MARK: Debug
 /// 调试输出
-/// - Parameter fmt: 输出的内容
-/// - Parameter file: 调试代码所在的文件名
-/// - Parameter function: 调试代码所处的方法名
-/// - Parameter line: 调试代码在文件中的行号
+/// - Parameter fmt:        输出的内容
+/// - Parameter file:       调试代码所在的文件名
+/// - Parameter function:   调试代码所处的方法名
+/// - Parameter line:       调试代码在文件中的行号
 public func MLog<T>(_ fmt: T, file: String = #file, function: String = #function, line: Int = #line) {
     #if DEBUG
     let fileName = NSString(string: file).pathComponents.last ?? "UnknowFileName"

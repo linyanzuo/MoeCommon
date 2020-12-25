@@ -133,21 +133,29 @@ public extension TypeWrapperProtocol where WrappedType == String {
 public extension NSAttributedString {
     /// 根据指定参数，创建富文本实例
     /// - Parameters:
-    ///   - text:   富文本内容
-    ///   - size:   字体大小
-    ///   - weight: 字体粗细，默认为普通
-    ///   - color:  字体颜色
-    ///   - lineSpacing: 行间距
+    ///   - text:           富文本内容
+    ///   - size:           字体大小
+    ///   - weight:         字体粗细，默认为普通
+    ///   - color:          字体颜色
+    ///   - lineSpacing:    行间距
+    ///   - alignment:      对齐方式
     @available(iOS 9.0, *)
-    convenience init(text: String, withFont size: CGFloat, weight: UIFont.Weight = .regular, color: UIColor = .black, lineSpacing: CGFloat? = nil, alignment: NSTextAlignment = .left) {
+    convenience init(
+        text: String,
+        withFont size: CGFloat,
+        weight: UIFont.Weight = .regular,
+        color: UIColor = .black,
+        lineSpacing: CGFloat? = nil,
+        alignment: NSTextAlignment? = nil
+    ) {
         var attributes = [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: weight),
             NSAttributedString.Key.foregroundColor: color,
         ]
-        if let lineSpacing = lineSpacing {
+        if lineSpacing != nil || alignment != nil {
             let paraStyle = NSMutableParagraphStyle()
-            paraStyle.lineSpacing = lineSpacing
-            paraStyle.alignment = alignment
+            if let ls = lineSpacing { paraStyle.lineSpacing = ls }
+            if let al = alignment { paraStyle.alignment = al }
             attributes[NSAttributedString.Key.paragraphStyle] = paraStyle
         }
         self.init(string: text, attributes: attributes)
