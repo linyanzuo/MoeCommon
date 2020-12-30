@@ -27,14 +27,6 @@ public extension TypeWrapperProtocol where WrappedType: UIViewController {
         return vc
     }
     
-    /// 呈现模态视图(Model Present)时，使控制器根视图透明时可穿透（看到后面的内容）
-    func clearPresentationBackground()  {
-        wrappedValue.providesPresentationContextTransitionStyle = true
-        wrappedValue.definesPresentationContext = true
-        wrappedValue.modalPresentationStyle = .overCurrentContext
-        if #available(iOS 13.0, *) { wrappedValue.modalPresentationStyle = .overFullScreen }
-    }
-    
     /// 将控制器添加至导航栈中，并展示其界面
     /// - Parameters:
     ///   - viewController: 要展示的视图控制器
@@ -68,12 +60,24 @@ public extension TypeWrapperProtocol where WrappedType: UIViewController {
     /// 通过「转场动画 + 控制器」形式实现的功能控件，都应该通过该方法呈现，而不是调用 `push(viewController: animated:)` 方法
     /// - Parameters:
     ///   - viewController: 要展示的视图控制器
-    ///   - transparency:   控制器背景透明时是否穿透
     ///   - animated:       转场过程是否启用动画，默认为true
     ///   - completion:     转场动画执行完成后的回调闭包
-    func present(viewController: UIViewController, transparency: Bool = false, animated: Bool = true, completion: (() -> Void)? = nil) {
+    func present(viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
         if #available(iOS 13.0, *) { viewController.modalPresentationStyle = .fullScreen }
-        if transparency { viewController.modalPresentationStyle = .overCurrentContext }
+        wrappedValue.present(viewController, animated: animated, completion: completion)
+    }
+    
+    /// 呈现模态视图(Model Present)，并使控制器根视图透明时可穿透（看到后面的内容）
+    /// 通过「转场动画 + 控制器」形式实现的功能控件，或需要内容穿透，应该通过该方法呈现，而不是调用`present(viewController: animated: completion:)`方法
+    /// - Parameters:
+    ///   - viewController: 要展示的视图控制器
+    ///   - animated:       转场过程是否启用动画，默认为true
+    ///   - completion:     转场动画执行完成后的回调闭包
+    func transparencyPresent(viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil)  {
+        viewController.providesPresentationContextTransitionStyle = true
+        viewController.definesPresentationContext = true
+        viewController.modalPresentationStyle = .overCurrentContext
+//        if #available(iOS 13.0, *) { wrappedValue.modalPresentationStyle = .overFullScreen }
         wrappedValue.present(viewController, animated: animated, completion: completion)
     }
     
