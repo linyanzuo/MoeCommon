@@ -68,10 +68,12 @@ public extension TypeWrapperProtocol where WrappedType: UIViewController {
     /// 通过「转场动画 + 控制器」形式实现的功能控件，都应该通过该方法呈现，而不是调用 `push(viewController: animated:)` 方法
     /// - Parameters:
     ///   - viewController: 要展示的视图控制器
+    ///   - transparency:   控制器背景透明时是否穿透
     ///   - animated:       转场过程是否启用动画，默认为true
     ///   - completion:     转场动画执行完成后的回调闭包
-    func present(viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
+    func present(viewController: UIViewController, transparency: Bool = false, animated: Bool = true, completion: (() -> Void)? = nil) {
         if #available(iOS 13.0, *) { viewController.modalPresentationStyle = .fullScreen }
+        if transparency { viewController.modalPresentationStyle = .overCurrentContext }
         wrappedValue.present(viewController, animated: animated, completion: completion)
     }
     
