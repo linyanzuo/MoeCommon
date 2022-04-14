@@ -19,9 +19,7 @@ class ViewController: UIViewController, Runtime {
         super.viewDidLoad()
         
         let result = "Hello".moe.subString(start: 2)
-        print(result)
-        
-        MLog("调试输出的内容")
+        MLog(result!)
         
         let arr2 = [4, 5, 6]
         var arr1 = [1, 2, 3]
@@ -34,19 +32,6 @@ class ViewController: UIViewController, Runtime {
                      "2": 2]
         dict1 += dict2
         MLog(dict1)
-        
-        userDefaultsSave(pairs: [
-            "UserLanguage" : "Chinese",
-            "Int" : 10,
-            "Null" : nil
-        ])
-        
-        print(userDefaultsValue(forKey: "Null"))
-        print(userDefaultsValue(forKey: "Int"))
-        print(userDefaultsValue(forKey: "UserLanguage"))
-        
-        userDefaultsRemove(keys: ["Int"])
-        print(userDefaultsValue(forKey: "Int"))
     }
     
     @objc var name: String {
@@ -60,5 +45,24 @@ class ViewController: UIViewController, Runtime {
         }
         set { setAssociatedRetainObject(object: newValue, for: RuntimeKey.name) }
     }
-}
+    
+    /// 判断当前内容是否为有效的手机号码
+    /// - Returns:  是手机号码则返回true，否则返回false
+    func isPhoneNumber(value: String) -> Bool {
+        let MOBILE = "^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$"
+        /** 中国移动（China Mobile）：134(0-8)、135、136、137、138、139、147、150、151、152、157、158、159、178、182、183、184、187、188、198 */
+        let CM = "^1(34[0-8]|(3[5-9]|47|5[012789]|78|8[23478]|98)\\d)\\d{7}$"
+        /** 中国联通（China Unicom）：130、131、132、145、155、156、166、175、176、185、186 */
+        let CU = "^1(3[0-2]|45|5[56]|66|7[56]|8[56])\\d{8}$"
+        /** 中国电信（China Telecom）：133、149、153、173、177、180、181、189、199 */
+        let CT = "(^1(33|49|53|7[37]|8[019])\\d{8}$)|(^1700\\d{7}$)"
 
+        let regexTestMobile = NSPredicate(format:"SELF MATCHES %@", MOBILE).evaluate(with: value)
+        let regexTestCM = NSPredicate(format:"SELF MATCHES %@", CM).evaluate(with: value)
+        let regexTestCU = NSPredicate(format:"SELF MATCHES %@", CU).evaluate(with: value)
+        let regexTestCT = NSPredicate(format:"SELF MATCHES %@", CT).evaluate(with: value)
+        if (regexTestMobile || regexTestCM || regexTestCU || regexTestCT) { return true }
+        
+        return false
+    }
+}
