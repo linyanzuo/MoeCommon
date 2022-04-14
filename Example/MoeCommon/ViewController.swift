@@ -18,20 +18,22 @@ class ViewController: UIViewController, Runtime {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(InfoPlist.bundleID)
+    
         let result = "Hello".moe.subString(start: 2)
-        MLog(result!)
+        print(result!)
         
         let arr2 = [4, 5, 6]
         var arr1 = [1, 2, 3]
         arr1 += arr2
-        MLog(arr1)
+        print(arr1)
         
         let dict2 = ["3": 3,
                      "4": 4]
         var dict1 = ["1": 1,
                      "2": 2]
         dict1 += dict2
-        MLog(dict1)
+        print(dict1)
     }
     
     @objc var name: String {
