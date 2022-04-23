@@ -17,6 +17,7 @@
 		7C79A6D71FF2EA13AC8F1DD1A90CDD32 /* WKWebView+Moe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B405021A4E9C74C6C9ADEFE97788E629 /* WKWebView+Moe.swift */; };
 		8E740EFF3C481346F02C68D6C952E494 /* Pods-MoeCommon_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D13827083E2B6B363F2F5B1E3FFE9354 /* Pods-MoeCommon_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92334499C5691587FA30D509C3245266 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */; };
+		95560EA528139BC4007F81F7 /* NSObject+Moe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95560EA428139BC4007F81F7 /* NSObject+Moe.swift */; };
 		95B092B52807F55900E3AB44 /* SwiftyNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B092B42807F55900E3AB44 /* SwiftyNameSpace.swift */; };
 		95B092B72807F84100E3AB44 /* String+Moe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B092B62807F84100E3AB44 /* String+Moe.swift */; };
 		95D57FBDD844AC345CC72E5618F6737C /* Pods-MoeCommon_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 85943DA6BAE4707CA8A8805348A2C3A8 /* Pods-MoeCommon_Example-dummy.m */; };
@@ -63,6 +64,7 @@
 		85943DA6BAE4707CA8A8805348A2C3A8 /* Pods-MoeCommon_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MoeCommon_Example-dummy.m"; sourceTree = "<group>"; };
 		8792448FE4A2AA0858EDEA50640CC8B9 /* Standard+Moe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Standard+Moe.swift"; path = "Classes/Extension/Standard+Moe.swift"; sourceTree = "<group>"; };
 		922037663E16F0C035AF8520758CCB69 /* Pods-MoeCommon_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MoeCommon_Example.release.xcconfig"; sourceTree = "<group>"; };
+		95560EA428139BC4007F81F7 /* NSObject+Moe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Moe.swift"; sourceTree = "<group>"; };
 		95B092B42807F55900E3AB44 /* SwiftyNameSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyNameSpace.swift; path = Classes/Extension/SwiftyNameSpace.swift; sourceTree = "<group>"; };
 		95B092B62807F84100E3AB44 /* String+Moe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Moe.swift"; path = "Classes/Extension/String+Moe.swift"; sourceTree = "<group>"; };
 		96E84E7EBAE0C0E5FCAF45741F51DBA5 /* Pods-MoeCommon_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MoeCommon_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				9A6BAF4DF996515C970AF964393BB2D6 /* Foundation+Moe.swift */,
 				8792448FE4A2AA0858EDEA50640CC8B9 /* Standard+Moe.swift */,
 				B405021A4E9C74C6C9ADEFE97788E629 /* WKWebView+Moe.swift */,
+				95560EA428139BC4007F81F7 /* NSObject+Moe.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				DD4C903562165CFFF3211CB96955D58A /* Constants.swift in Sources */,
 				0112511964DF9027F760A1D440EF1957 /* Foundation+Moe.swift in Sources */,
 				16B3ADB841AC156CBE1DC70121088BB5 /* MoeCommon-dummy.m in Sources */,
+				95560EA528139BC4007F81F7 /* NSObject+Moe.swift in Sources */,
 				95B092B52807F55900E3AB44 /* SwiftyNameSpace.swift in Sources */,
 				B449D3A47C863BDB04C8729C5BD9E6F5 /* Runtime.swift in Sources */,
 				46C5428F58E3C6358EDD97B7ED3CB130 /* Standard+Moe.swift in Sources */,
