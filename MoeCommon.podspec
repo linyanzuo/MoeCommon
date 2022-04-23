@@ -33,16 +33,16 @@ TODO: Add long description of the pod here.
 
   # s.source_files = 'Classes/*/*'
   s.subspec 'Base' do |base|
-    base.source_files = 'Classes/Base/*/*'
+    base.source_files = 'MoeCommon/Classes/Base/*'
     base.frameworks = 'UIKit'
   end
   s.subspec 'Runtime' do |runtime|
-    runtime.source_files = 'Classes/Runtime/*'
+    runtime.source_files = 'MoeCommon/Classes/Runtime/*'
     runtime.dependency 'MoeCommon/Base'
     runtime.dependency 'MoeCommon/Extension'
   end
   s.subspec 'Extension' do |extension|
-    extension.source_files = 'Classes/Extension/*'
+    extension.source_files = 'MoeCommon/Classes/Extension/*'
     extension.frameworks = 'UIKit'
   end
   
